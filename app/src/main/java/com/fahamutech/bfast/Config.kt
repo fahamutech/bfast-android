@@ -3,7 +3,9 @@ package com.fahamutech.bfast
 import com.fahamutech.bfast.adapters.AuthAdapter
 import com.fahamutech.bfast.adapters.CacheAdapter
 import com.fahamutech.bfast.adapters.HttpClientAdapter
+import com.fahamutech.bfast.controllers.SecurityController
 import com.fahamutech.bfast.factories.DefaultAuthFactory
+import com.fahamutech.bfast.factories.DefaultCacheFactory
 
 object BFastConfig {
     val DEFAULT_APP = "DEFAULT"
@@ -103,7 +105,7 @@ object BFastConfig {
         return if (adapters?.cache != null) {
             adapters.cache()
         } else {
-            DefaultCacheFactory()
+            DefaultCacheFactory(SecurityController())
         }
     }
 
